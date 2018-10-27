@@ -7,13 +7,15 @@
     <script type="text/javascript" src="js/timer.js"></script>
     
 
-<link href="css/style.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
 
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin-ext" rel="stylesheet">
-<link href="css/fontello.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="css/fontello.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/game.css" rel="stylesheet">
 </head>
 
-<body onload="odliczanie();">
+<body  onload="zmienslajd(); odliczanie()">
 <div class="wrapper">
 	<header>
 		<div class="logo">
@@ -54,16 +56,17 @@
 			</ol>
 		</nav>
             
-    
-<video controls autoplay loop muted height="400">
+<div id="audio/video">
+    <video controls autoplay loop muted height="400">
       <source src="videos/koty.mp4"type="video/mp4" div="video"/>
         
     </video>
+    </div>
     <br>
         
         <audio id="audio" src="audio/cat.mp3" type="audio/mp3" controls loop>
         </audio>
-                                            
+</div>                                        
         
 	<div class="content">
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -72,6 +75,59 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	 </div>
+    
+    
+    <div class="slider">
+
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		
+		<script type="text/javascript">
+		
+			var numer = Math.floor(Math.random()*4)+1;
+			var timer1 = 0;
+			var timer2 = 0;
+			
+			function ustawslajd(nrslajdu)
+			{clearTimeout(timer1);
+				clearTimeout(timer2);
+				numer = nrslajdu - 1;
+				
+				schowaj();
+				setTimeout("zmienslajd()", 500);	
+			}
+			function schowaj()
+			{$("#slider").fadeOut(500);
+			}
+		
+			function zmienslajd()
+			{numer++; if (numer>4) numer=1;
+				
+				var plik = "<img src=\"images/koty" + numer + ".jpg\" />";
+				
+				document.getElementById("slider").innerHTML = plik;
+				$("#slider").fadeIn(500);
+				timer1 = setTimeout("zmienslajd()", 5000);
+				timer2 = setTimeout("schowaj()", 4500);}
+		</script>
+    </div>
+    
+    
+		<div id="slider"></div>
+		<span onclick="ustawslajd(1)" style="cursor:pointer;" class="kropka"></span>
+		<span onclick="ustawslajd(2)" style="cursor:pointer;" class="kropka"></span>
+		<span onclick="ustawslajd(3)" style="cursor:pointer;" class="kropka"></span>
+		<span onclick="ustawslajd(4)" style="cursor:pointer;" class="kropka"></span>
+		<span onclick="ustawslajd(5)" style="cursor:pointer;" class="kropka"></span>
+    
+
+    <div class="content">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="game">
+    <script src="js/game.js"></script>
+    </div>
+    
 	 <div class="socials">
 		 <div class="socialdivs">
 		 	<div class="fb"><i class="icon-facebook"></i></div>

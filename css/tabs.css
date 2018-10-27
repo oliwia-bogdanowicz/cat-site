@@ -1,0 +1,52 @@
+.modul {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 480px;
+    height: 480px;
+    padding: 1em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.modul .content {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.tablist {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tablist__item {
+    position: relative;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.tablist__item input[type="radio"] {
+    position: absolute;
+    left: -100px;
+}
+
+.tablist__item input[type="radio"]+label {
+    display: block;
+    width: 11px;
+    height: 11px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.tablist__item input[type="radio"]:checked+label {
+    background-color: #ccc;
+}
